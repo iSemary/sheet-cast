@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use App\Command\ImportSpreadsheetCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application('Sheet Cast', '1.0.0');
+$application->add(new ImportSpreadsheetCommand());
+$application->run();
