@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  sheet-cast:
+    build: .
+    volumes:
+      - ./.env:/app/.env
+      - ./config:/app/config
+      - ./logs:/app/logs
+      - ./sample.xml:/app/sample.xml
+    environment:
+      - APP_ENV=prod
+    command: ["./bin/console", "app:import-spreadsheet", "--file=sample.xml", "--limit=5"]

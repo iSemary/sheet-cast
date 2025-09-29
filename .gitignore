@@ -9,6 +9,7 @@
 
 /phpunit.xml
 /.phpunit.cache/
+phpunit.xml.bak
 
 /public/assets/
 /assets/vendor/
