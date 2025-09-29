@@ -8,6 +8,7 @@
 /vendor/
 
 /phpunit.xml
+/phpunit.xml.bak
 /.phpunit.cache/
 
 /public/assets/
