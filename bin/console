@@ -5,6 +5,11 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Command\ImportSpreadsheetCommand;
 use Symfony\Component\Console\Application;
+use Dotenv\Dotenv;
+
+// Load environment variables
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
 
 $application = new Application('Sheet Cast', '1.0.0');
 $application->add(new ImportSpreadsheetCommand());
