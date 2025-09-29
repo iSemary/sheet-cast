@@ -87,22 +87,4 @@ class XmlParser
         return array_unique($headers);
     }
 
-    public function getDataSummary(array $data): array
-    {
-        if (empty($data)) {
-            return [
-                'total_records' => 0,
-                'fields' => [],
-                'sample_record' => []
-            ];
-        }
-
-        $headers = $this->getTableHeaders($data);
-        
-        return [
-            'total_records' => count($data),
-            'fields' => $headers,
-            'sample_record' => $data[0] ?? []
-        ];
-    }
 }

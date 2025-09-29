@@ -51,36 +51,6 @@ class FtpService
         }
     }
 
-    public function downloadFile(string $remoteFile, string $localFile): bool
-    {
-        if (!$this->connection) {
-            $this->logger->error('FTP connection not established');
-            return false;
-        }
-
-        try {
-            $this->logger->info('Downloading file from FTP', [
-                'remote_file' => $remoteFile,
-                'local_file' => $localFile
-            ]);
-
-            $result = ftp_get($this->connection, $localFile, $remoteFile, FTP_BINARY);
-            
-            if ($result) {
-                $this->logger->info('File downloaded successfully', ['local_file' => $localFile]);
-                return true;
-            } else {
-                throw new \Exception('Failed to download file');
-            }
-            
-        } catch (\Exception $e) {
-            $this->logger->error('File download failed', [
-                'remote_file' => $remoteFile,
-                'error' => $e->getMessage()
-            ]);
-            return false;
-        }
-    }
 
     public function getFileContent(string $remoteFile): ?string
     {
@@ -151,8 +121,4 @@ class FtpService
         $this->disconnect();
     }
 
-    public function isConnected(): bool
-    {
-        return $this->connection !== null;
-    }
 }
