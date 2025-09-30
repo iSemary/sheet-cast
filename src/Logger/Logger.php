@@ -2,21 +2,27 @@
 
 namespace App\Logger;
 
+use App\Configuration\Configuration;
 use Monolog\Logger as MonologLogger;
-use Monolog\Handler\StreamHandler;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Formatter\LineFormatter;
 
 class Logger
 {
     private MonologLogger $logger;
-    private string $logFile;
-    private string $logLevel;
+    private array $config;
 
-    public function __construct(string $logFile = null, string $logLevel = 'info')
+    public function __construct(string $logFile = null, string $logLevel = null)
     {
-        $this->logFile = $logFile ?? ($_ENV['LOG_FILE'] ?? 'logs/app.log');
-        $this->logLevel = $logLevel ?? ($_ENV['LOG_LEVEL'] ?? 'info');
+        $this->config = Configuration::get('logs');
+        
+        // Override config with constructor parameters if provided
+        if ($logFile !== null) {
+            $this->config['file'] = $logFile;
+        }
+        if ($logLevel !== null) {
+            $this->config['level'] = $logLevel;
+        }
         
         $this->initializeLogger();
     }
@@ -26,13 +32,17 @@ class Logger
         $this->logger = new MonologLogger('sheet-cast');
         
         // Create logs directory if it doesn't exist
-        $logDir = dirname($this->logFile);
+        $logDir = dirname($this->config['file']);
         if (!is_dir($logDir)) {
             mkdir($logDir, 0755, true);
         }
 
         // Add rotating file handler (creates new file daily)
-        $fileHandler = new RotatingFileHandler($this->logFile, 30, $this->getLogLevel());
+        $fileHandler = new RotatingFileHandler(
+            $this->config['file'], 
+            $this->config['max_files'], 
+            $this->getLogLevel()
+        );
         
         // Set custom formatter
         $formatter = new LineFormatter(
@@ -46,7 +56,7 @@ class Logger
 
     private function getLogLevel(): int
     {
-        return match (strtolower($this->logLevel)) {
+        return match (strtolower($this->config['level'])) {
             'debug' => MonologLogger::DEBUG,
             'info' => MonologLogger::INFO,
             'notice' => MonologLogger::NOTICE,
@@ -59,58 +69,13 @@ class Logger
         };
     }
 
-    public function debug(string $message, array $context = []): void
-    {
-        $this->logger->debug($message, $context);
-    }
-
     public function info(string $message, array $context = []): void
     {
         $this->logger->info($message, $context);
     }
 
-    public function notice(string $message, array $context = []): void
-    {
-        $this->logger->notice($message, $context);
-    }
-
-    public function warning(string $message, array $context = []): void
-    {
-        $this->logger->warning($message, $context);
-    }
-
     public function error(string $message, array $context = []): void
     {
         $this->logger->error($message, $context);
-    }
-
-    public function critical(string $message, array $context = []): void
-    {
-        $this->logger->critical($message, $context);
-    }
-
-    public function alert(string $message, array $context = []): void
-    {
-        $this->logger->alert($message, $context);
-    }
-
-    public function emergency(string $message, array $context = []): void
-    {
-        $this->logger->emergency($message, $context);
-    }
-
-    public function log(string $level, string $message, array $context = []): void
-    {
-        $this->logger->log($this->getLogLevel(), $message, $context);
-    }
-
-    public function getLogFile(): string
-    {
-        return $this->logFile;
-    }
-
-    public function getLogLevelName(): string
-    {
-        return $this->logLevel;
     }
 }

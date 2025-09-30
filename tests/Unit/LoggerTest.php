@@ -55,8 +55,7 @@ class LoggerTest extends TestCase
     {
         $logger = new Logger($this->testLogFile, 'debug');
         
-        $logger->debug('Debug message');
-        $logger->warning('Warning message');
+        $logger->info('Info message');
         $logger->error('Error message');
         
         $this->assertTrue(true);

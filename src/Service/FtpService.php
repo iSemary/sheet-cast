@@ -2,37 +2,33 @@
 
 namespace App\Service;
 
+use App\Configuration\Configuration;
 use App\Logger\Logger;
 
 class FtpService
 {
     private Logger $logger;
-    private string $host;
-    private string $username;
-    private string $password;
+    private array $config;
     private ?\FTP\Connection $connection = null;
 
     public function __construct(Logger $logger)
     {
         $this->logger = $logger;
-        $this->host = $_ENV['FTP_HOST'] ?? '';
-        $this->username = $_ENV['FTP_USERNAME'] ?? '';
-        $this->password = $_ENV['FTP_PASSWORD'] ?? '';
+        $this->config = Configuration::get('ftp');
     }
 
     public function connect(): bool
     {
         try {
-            $this->logger->info('Connecting to FTP server', ['host' => $this->host]);
+            $this->logger->info('Connecting to FTP server', ['host' => $this->config['host']]);
             
-            $timeout = 30;
-            $this->connection = ftp_connect($this->host, 21, $timeout);
+            $this->connection = ftp_connect($this->config['host'], $this->config['port'], $this->config['timeout']);
             
             if (!$this->connection) {
                 throw new \Exception('Failed to connect to FTP server');
             }
 
-            $login = ftp_login($this->connection, $this->username, $this->password);
+            $login = ftp_login($this->connection, $this->config['username'], $this->config['password']);
             
             if (!$login) {
                 throw new \Exception('Failed to login to FTP server');

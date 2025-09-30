@@ -30,28 +30,11 @@ Sheet Cast is a simple command line tool that reads XML files and sends the data
 
 ### Installation
 
-#### Option 1: Install via Composer (Recommended)
+#### Install via Composer
 
 ```bash
-# Install globally
-composer global require isemary/sheet-cast
-
-# Or install in your project
+# install in your project
 composer require isemary/sheet-cast
-```
-
-#### Option 2: Clone from GitHub
-
-```bash
-# Clone the repository
-git clone https://github.com/iSemary/sheet-cast.git
-cd sheet-cast
-
-# Install dependencies
-composer install
-
-# Copy environment configuration
-cp .env.example .env
 ```
 
 ### Quick Start

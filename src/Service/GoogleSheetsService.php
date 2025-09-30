@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Configuration\Configuration;
 use App\Logger\Logger;
 use Google\Client;
 use Google\Service\Sheets;
@@ -12,12 +13,12 @@ class GoogleSheetsService
     private Logger $logger;
     private Client $client;
     private Sheets $service;
-    private string $spreadsheetId;
+    private array $config;
 
     public function __construct(Logger $logger)
     {
         $this->logger = $logger;
-        $this->spreadsheetId = $_ENV['GOOGLE_SHEETS_SPREADSHEET_ID'] ?? '';
+        $this->config = Configuration::get('google_sheets');
         
         $this->initializeClient();
     }
@@ -26,9 +27,9 @@ class GoogleSheetsService
     {
         try {
             $this->client = new Client();
-            $this->client->setApplicationName('Sheet Cast');
+            $this->client->setApplicationName($this->config['application_name']);
             $this->client->setScopes([Sheets::SPREADSHEETS]);
-            $this->client->setAuthConfig($_ENV['GOOGLE_SHEETS_CREDENTIALS_PATH'] ?? '');
+            $this->client->setAuthConfig($this->config['credentials_path']);
             $this->client->setAccessType('offline');
 
             $this->service = new Sheets($this->client);
@@ -45,7 +46,7 @@ class GoogleSheetsService
     {
         try {
             $this->logger->info('Writing data to Google Sheets', [
-                'spreadsheet_id' => $this->spreadsheetId,
+                'spreadsheet_id' => $this->config['spreadsheet_id'],
                 'range' => $range,
                 'records_count' => count($data)
             ]);
@@ -59,7 +60,7 @@ class GoogleSheetsService
             ];
 
             $result = $this->service->spreadsheets_values->update(
-                $this->spreadsheetId,
+                $this->config['spreadsheet_id'],
                 $range,
                 $body,
                 $params
@@ -91,6 +92,6 @@ class GoogleSheetsService
 
     public function getSpreadsheetId(): string
     {
-        return $this->spreadsheetId;
+        return $this->config['spreadsheet_id'];
     }
 }
