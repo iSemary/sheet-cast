@@ -1,7 +1,10 @@
 {
   "name": "isemary/sheet-cast",
-  "description": "A CLI tool to import XML data to Google Sheets",
-  "type": "project",
+  "description": "A CLI tool to import XML data to Google Sheets with FTP support",
+  "type": "library",
+  "keywords": ["google-sheets", "xml", "ftp", "cli", "import", "data-migration"],
+  "license": "MIT",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "Abdelrahman Mostafa",
@@ -30,7 +33,13 @@
       "Tests\\": "tests/"
     }
   },
+  "bin": ["bin/console"],
   "scripts": {
     "test": "phpunit"
-  }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
 }

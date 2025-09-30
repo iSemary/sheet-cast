@@ -30,6 +30,18 @@ Sheet Cast is a simple command line tool that reads XML files and sends the data
 
 ### Installation
 
+#### Option 1: Install via Composer (Recommended)
+
+```bash
+# Install globally
+composer global require isemary/sheet-cast
+
+# Or install in your project
+composer require isemary/sheet-cast
+```
+
+#### Option 2: Clone from GitHub
+
 ```bash
 # Clone the repository
 git clone https://github.com/iSemary/sheet-cast.git
@@ -40,6 +52,18 @@ composer install
 
 # Copy environment configuration
 cp .env.example .env
+```
+
+### Quick Start
+
+After installation, you can use the command directly:
+
+```bash
+# If installed globally
+sheet-cast app:import-spreadsheet --file=your-file.xml --limit=10
+
+# If installed in project
+./vendor/bin/sheet-cast app:import-spreadsheet --file=your-file.xml --limit=10
 ```
 
 ### Environment Configuration
@@ -90,11 +114,13 @@ FTP_FILE=your_file.xml
 
 ```bash
 # Process FTP XML file + Push to Google Sheets
-./bin/console app:import-spreadsheet --file=coffee_feed.xml --push-to-sheets --limit=100
+sheet-cast app:import-spreadsheet --file=coffee_feed.xml --push-to-sheets --limit=100
 
 # Process local XML file + Push to Google Sheets
-./bin/console app:import-spreadsheet --file=test_data.xml --push-to-sheets --limit=3
+sheet-cast app:import-spreadsheet --file=test_data.xml --push-to-sheets --limit=3
 
+# Display data without pushing to sheets
+sheet-cast app:import-spreadsheet --file=test_data.xml --limit=10
 ```
 
 ## Testing
