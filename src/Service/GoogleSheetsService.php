@@ -89,7 +89,6 @@ class GoogleSheetsService
         }
     }
 
-
     public function getSpreadsheetId(): string
     {
         return $this->spreadsheetId;

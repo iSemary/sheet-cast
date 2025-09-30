@@ -17,7 +17,7 @@ Sheet Cast is a simple command line tool that reads XML files and sends the data
 
 ## Technologies
 
-- **PHP 8.3+**
+- **PHP 8.4**
 - **Symfony Console**
 - **PHPUnit**
 
@@ -89,14 +89,11 @@ FTP_FILE=your_file.xml
 ### Basic Usage
 
 ```bash
-# Push to Google Sheets
+# Process FTP XML file + Push to Google Sheets
 ./bin/console app:import-spreadsheet --file=coffee_feed.xml --push-to-sheets --limit=100
 
-# Process local XML file
-./bin/console app:import-spreadsheet --file=sample.xml --limit=10
-
-# Process FTP file
-./bin/console app:import-spreadsheet --file=coffee_feed.xml --limit=50
+# Process local XML file + Push to Google Sheets
+./bin/console app:import-spreadsheet --file=test_data.xml --push-to-sheets --limit=3
 
 ```
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <item>
+    <entity_id>1001</entity_id>
+    <CategoryName><![CDATA[Local Products]]></CategoryName>
+    <sku>LOC001</sku>
+    <name><![CDATA[Local Coffee Caramel K-cup Pods 96ct]]></name>
+    <description/>
+    <shortdesc><![CDATA[Local Coffee Caramel K-cup Pods 96ct offers you a quick and easy way to brew their fantastic caramel flavored coffee. Enjoy this coffee with just a push of a button on your single serve coffee brewer.]]></shortdesc>
+    <price>49.9900</price>
+    <link>http://www.localcoffee.com/local-coffee-caramel-k-cup-pods-96ct.html</link>
+    <image>http://mcdn.localcoffee.com/media/catalog/product//l/o/local_coffee_caramel_kcup_pods_1.jpeg</image>
+    <Brand><![CDATA[Local Coffee]]></Brand>
+    <Rating>5</Rating>
+    <CaffeineType>Caffeinated</CaffeineType>
+    <Count>96</Count>
+    <Flavored>Yes</Flavored>
+    <Seasonal>No</Seasonal>
+    <Instock>Yes</Instock>
+    <Facebook>0</Facebook>
+    <IsKCup>1</IsKCup>
+  </item>
+  <item>
+    <entity_id>1002</entity_id>
+    <CategoryName><![CDATA[Local Products]]></CategoryName>
+    <sku>LOC002</sku>
+    <name><![CDATA[Local Mountain Coffee Cinnamon Sugar Cookie K-cup Pods 96ct]]></name>
+    <description/>
+    <shortdesc><![CDATA[Local Mountain Coffee Cinnamon Sugar Cookie K-cup Pods 96ct is the latest seasonal release from Local Mountain Coffee Roasters. One sip and you will be transported back in time and feel like you are eating one of grandma's famous Cinnamon Sugar Cookies. The best part is that you can enjoy this treat with zero guilt and the convenience of single serve coffee brewing technology.]]></shortdesc>
+    <price>52.9900</price>
+    <link>http://www.localcoffee.com/local-mountain-coffee-cinnamon-sugar-cookie-k-cup-pods-96ct.html</link>
+    <image>http://mcdn.localcoffee.com/media/catalog/product//l/o/local-mountain-cinnamon-sugar-cookie-kcup-pods_1.jpg</image>
+    <Brand><![CDATA[Local Mountain Coffee]]></Brand>
+    <Rating>4</Rating>
+    <CaffeineType>Caffeinated</CaffeineType>
+    <Count>96</Count>
+    <Flavored>Yes</Flavored>
+    <Seasonal>Yes</Seasonal>
+    <Instock>Yes</Instock>
+    <Facebook>0</Facebook>
+    <IsKCup>1</IsKCup>
+  </item>
+  <item>
+    <entity_id>1003</entity_id>
+    <CategoryName><![CDATA[Local Products]]></CategoryName>
+    <sku>LOC003</sku>
+    <name><![CDATA[Local Mountain Coffee Toasted Marshmallow Mocha K-cup Pods 96ct]]></name>
+    <description/>
+    <shortdesc><![CDATA[Local Mountain Coffee Toasted Marshmallow Mocha K-cup Pods 96ct is like drinking a s'mores right from the fire place. Transport yourself back to the holidays with this delicious coffee treat.]]></shortdesc>
+    <price>54.9900</price>
+    <link>http://www.localcoffee.com/local-mountain-coffee-toasted-marshmallow-mocha-k-cup-pods-96ct.html</link>
+    <image>http://mcdn.localcoffee.com/media/catalog/product//l/o/local-mountain-toasted-marshmallow-mocha-kcup-pods_1.jpg</image>
+    <Brand><![CDATA[Local Mountain Coffee]]></Brand>
+    <Rating>5</Rating>
+    <CaffeineType>Caffeinated</CaffeineType>
+    <Count>96</Count>
+    <Flavored>Yes</Flavored>
+    <Seasonal>Yes</Seasonal>
+    <Instock>Yes</Instock>
+    <Facebook>0</Facebook>
+    <IsKCup>1</IsKCup>
+  </item>
+  <item>
+    <entity_id>1004</entity_id>
+    <CategoryName><![CDATA[Local Products]]></CategoryName>
+    <sku>LOC004</sku>
+    <name><![CDATA[Local Roasters Dark Blend Ground Coffee 2lb]]></name>
+    <description/>
+    <shortdesc><![CDATA[Local Roasters Dark Blend Ground Coffee 2lb is a rich and bold coffee blend perfect for those who love strong, full-bodied coffee. This locally roasted blend combines beans from multiple regions for a complex flavor profile.]]></shortdesc>
+    <price>24.9900</price>
+    <link>http://www.localcoffee.com/local-roasters-dark-blend-ground-coffee-2lb.html</link>
+    <image>http://mcdn.localcoffee.com/media/catalog/product//l/o/local_roasters_dark_blend_ground_2lb_1.jpg</image>
+    <Brand><![CDATA[Local Roasters]]></Brand>
+    <Rating>4</Rating>
+    <CaffeineType>Caffeinated</CaffeineType>
+    <Count>1</Count>
+    <Flavored>No</Flavored>
+    <Seasonal>No</Seasonal>
+    <Instock>Yes</Instock>
+    <Facebook>0</Facebook>
+    <IsKCup>0</IsKCup>
+  </item>
+  <item>
+    <entity_id>1005</entity_id>
+    <CategoryName><![CDATA[Local Products]]></CategoryName>
+    <sku>LOC005</sku>
+    <name><![CDATA[Local Decaf House Blend K-cup Pods 24ct]]></name>
+    <description/>
+    <shortdesc><![CDATA[Local Decaf House Blend K-cup Pods 24ct offers the same great taste as our regular house blend but without the caffeine. Perfect for evening coffee enjoyment or for those who are sensitive to caffeine.]]></shortdesc>
+    <price>18.9900</price>
+    <link>http://www.localcoffee.com/local-decaf-house-blend-k-cup-pods-24ct.html</link>
+    <image>http://mcdn.localcoffee.com/media/catalog/product//l/o/local_decaf_house_blend_kcup_24ct_1.jpg</image>
+    <Brand><![CDATA[Local Coffee]]></Brand>
+    <Rating>3</Rating>
+    <CaffeineType>Decaffeinated</CaffeineType>
+    <Count>24</Count>
+    <Flavored>No</Flavored>
+    <Seasonal>No</Seasonal>
+    <Instock>Yes</Instock>
+    <Facebook>0</Facebook>
+    <IsKCup>1</IsKCup>
+  </item>
+</catalog>
